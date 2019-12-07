@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Book Page
+{% endblock %}
+
+{% block body %}
+
+    <div class=row>
+        <a href="{{ url_for('findbooks') }}"><button class="btn btn-secondary"> Back to Search </button></a>
+    </div>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Title: {{book.title}}</h1>
+            <p class="lead">The author of the book is: {{ book.author }}, published in {{book.year}} and the ISBN number is {{book.isbn}}</p>
+            <p class="lead">Rating from GoodReades:{{rating}}</p>
+            <p class="lead">Number of Rating from GoodReades:{{count_rating}}</p>
+        </div>
+    </div>
+
+    <form action="/addreview" method="POST">
+        <div class="input-group">
+            <div class=" col-md-4 btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                <span class="input-group-text">Review</span>
+                <div class="btn-group " role="group" aria-label="First group">
+                    <input type="radio" name="rating" value="1" required="" > 1 
+                    <input type="radio" name="rating" value="2" required="" > 2 
+                    <input type="radio" name="rating" value="3" required="" > 3
+                    <input type="radio" name="rating" value="4" required="" > 4
+                    <input type="radio" name="rating" value="5" required="" > 5
+                </div>
+                <textarea class="form-control" aria-label="With textarea" name="review" placeholder="Write your review of the book here..." required="" ></textarea>
+                <label>ISBN:  </label>
+                <input type="text" name="isbn" label="ISBN" value={{book.isbn}} readonly>
+            </div>
+        </div><br>
+        <button type="submit" id="review_button" name="review_button" class="btn btn-primary">Submit</button>
+    </form>
+
+    <br>
+    <div class="input-group"><h3>Review of the Book</h3></div>
+    <div class="input-group">
+        <ul class="col-md-8 list-group-flush">
+            {% for sitereview in sitereviews %}
+            <li class="list-group-item list-group-item">
+                <b>User:</b>{{sitereview.username}}<br><b>Review:</b>{{sitereview.review}}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+{% endblock %}
+

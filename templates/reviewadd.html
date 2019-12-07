@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Review Add
+{% endblock %}
+
+{% block body %}
+
+    <div class="alert alert-warning col-md-8" role="alert">
+        {{mensagem}}
+    </div>
+    <br>
+    <div class= "col-md-8">
+        <a href="{{url_for('addreview')}}"><button class="btn btn-primary">  Back  </button></a>
+    </div>
+{% endblock %}
+

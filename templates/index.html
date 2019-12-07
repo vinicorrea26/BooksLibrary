@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Login
+{% endblock %}
+
+{% block body %}
+   <form action="/buscador" method="POST">
+        <input type="username" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit" value="Log in">
+    </form>
+    <a href="{{ url_for('formulario') }}"><button type="submit"> Sign In</button></a>
+{% endblock %}
+

@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <form action ="/findbooks" method="POST" class="form-horizontal">
+                <fieldset>
+                    <!-- Form Name -->
+                    <legend>Find your Book</legend>
+
+                    <!-- Select Basic -->
+                    <div class="form-group">
+                    <label class="col-md-4 control-label" for="selectbasic">Type</label>
+                        <div class="col-md-4">
+                            <select id="selectbasic" name="tipo" class="form-control">
+                            <option value="1">ISBN</option>
+                            <option value="2">Title</option>
+                            <option value="3">Author</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!--Search-->
+                    <div class="form-group">
+                    <label class="col-md-4 control-label" for="textinput">Search</label>  
+                        <div class="col-md-8">
+                            <input id="search" name="search" type="text" placeholder="Find The Book" class="form-control input-md">
+                        </div>
+                    </div>
+
+                    <!-- Button (Double) -->
+                    <div class="form-group">
+                    <label class="col-md-4 control-label" for="button1id"></label>
+                        <div class="col-md-8">
+                            <button type="submit" id="Find_Button" name="Find_Button" class="btn btn-primary">Find</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <a href="{{ url_for('index') }}"><button class="btn btn-secondary"> Logout</button></a>
+    </div>
+{% endblock %}

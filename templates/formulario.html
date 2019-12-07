@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Create a Count
+{% endblock %}
+
+{% block body %}
+   <form action="/cadsucess" method="POST">
+        <label>Name</label>
+        <input type="text" name="name">
+        <label>Username</label>
+        <input type="username" name="username">
+        <label>Password</label>
+        <input type="password" name="password">
+        <input type="submit" value="Create">
+    </form>
+    <a href="{{ url_for('index') }}"><button type="submit"> Back</button></a>
+{% endblock %}
+

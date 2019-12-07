@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Result: List of Books
+{% endblock %}
+
+{% block body %}
+    
+        <div class="container">
+
+            <div class=row>
+                <a href="{{ url_for('buscador') }}"><button class="btn btn-secondary"> New Search </button></a>
+            </div>
+            <br>
+            <div class="row">
+                <ul class="col-md-8 list-group" >
+                    {% for book in books %}
+                        <li class="list-group-item list-group-item-info">
+                            <a href="{{ url_for('bookpage', isbn = book.isbn) }}">
+                                <b>ISBN:</b> {{book.isbn}} - <b>Title:</b> {{book.title}} - <b>Author:</b> {{book.author}} 
+                            </a>
+                        </li><br>
+                    {% endfor %}
+                </ul>
+            </div>
+            </div>
+        </div>
+{% endblock %}
+
